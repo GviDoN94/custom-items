@@ -1,0 +1,41 @@
+:root {
+  --bg-items-wrapper: #424242;
+  --bg-items: #FFFFFF;
+  --text: #333333;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.items-wrapper {
+  padding: 70px 36px 110px 92px;
+  background-color: var(--bg-items-wrapper);
+}
+
+.visually-hidden {
+  position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  max-width: max-content;
+  padding: 30px;
+  padding-top: 20px;
+  background-color: var(--bg-items);
+  border-radius: 10px;
+}
