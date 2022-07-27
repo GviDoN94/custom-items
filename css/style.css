@@ -43,16 +43,23 @@ html {
 }
 
 body {
+  background-color: var(--bg-items-wrapper);
   font-family: 'OpenSans', sans-serif;
   font-weight: 400;
   font-size: 0;
 }
 
 .items-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: flex-start;
   padding: 70px 36px 110px 92px;
-  background-color: var(--bg-items-wrapper);
+}
+
+.item {
+  flex-shrink: 0;
 }
 
 .item:not(:last-child) {
