@@ -12,6 +12,7 @@
   <script src="libs/choices-js/choices.min.js" defer></script>
   <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript" defer></script>
   <script src="libs/simplebar/simplebar.min.js" defer></script>
+  <script src="libs/inputmask/inputmask.min.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -57,6 +58,18 @@
     <p class="skrollbar item">
       Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований.
     </p>
+    <form class="form" action="https://jsonplaceholder.typicode.com/posts" method="post">
+      <div class="form__input-wrap">
+        <input class="form__input" type="text" name="username" placeholder="Имя*">
+      </div>
+      <div class="form__input-wrap">
+        <input class="form__input" type="tel" name="phone" placeholder="Телефон*">
+      </div>
+      <div class="form__input-wrap">
+        <input class="form__input" type="email" name="email" placeholder="E-mail*">
+      </div>
+      <button class="form__btn" type="submit">Заказать</button>
+    </form>
   </div>
 </body>
 </html>
