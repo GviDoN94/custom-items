@@ -196,14 +196,24 @@ body {
 }
 
 .form__input-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
   margin-bottom: 31px;
+}
+
+.js-validate-error-label {
+  position: absolute;
+  top: -18px;
+  left: 20px;
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .form__input {
   width: 100%;
   padding: 19px 20px;
   background: var(--white);
-  border: 1px solid transparent;
   border-radius: 10px;
   font-size: 16px;
   line-height: 19px;

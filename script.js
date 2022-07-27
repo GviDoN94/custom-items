@@ -42,3 +42,40 @@ const inputTel = document.querySelector('.form__input[type="tel"]');
 
 const telMask = new Inputmask("+7 (999)-999-99-99");
 telMask.mask(inputTel);
+
+new window.JustValidate(".form", {
+  colorWrong: "#FF5C00",
+  rules: {
+    name: {
+      required: true,
+      minLength: 2,
+      maxLength: 25,
+    },
+    phone: {
+      required: true,
+      function: (name, value) => {
+        const phone = inputTel.inputmask.unmaskedvalue();
+        return +phone && phone.length === 10;
+      },
+    },
+    email: {
+      required: true,
+      email: true,
+    },
+  },
+  messages: {
+    name: {
+      required: "Вы не ввели имя",
+      minLength: "Имя слишком короткое",
+      maxLength: "Имя слишком длинное",
+    },
+    phone: {
+      required: "Вы не ввели номер телефон",
+      function: "Вы ввели некорректный номер телефона",
+    },
+    email: {
+      required: "Вы не ввели e-mail",
+      email: "Вы ввели некорректный e-mail",
+    },
+  },
+});
