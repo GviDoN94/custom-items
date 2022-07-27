@@ -2,6 +2,8 @@
   --bg-items-wrapper: #424242;
   --bg-items: #FFFFFF;
   --text: #333333;
+  --checkbox-border: #999999;
+  --checkbox-focus: #CCB26E;
 }
 
 html {
@@ -12,6 +14,36 @@ html {
 ::before,
 ::after {
   box-sizing: inherit;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/OpenSansRegular.woff2'),
+  url('../fonts/OpenSansRegular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/OpenSansSemiBold.woff2'),
+  url('../fonts/OpenSansSemiBold.woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/RobotoRegular.woff2'),
+  url('../fonts/RobotoRegular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'OpenSans', sans-serif;
+  font-weight: 400;
+  font-size: 0;
 }
 
 .items-wrapper {
@@ -30,7 +62,7 @@ html {
 	overflow: hidden;
 }
 
-.checkbox {
+.checkboxes {
   display: flex;
   flex-direction: column;
   max-width: max-content;
@@ -38,4 +70,52 @@ html {
   padding-top: 20px;
   background-color: var(--bg-items);
   border-radius: 10px;
+}
+
+.checkboxes__title {
+  margin: 0;
+  margin-bottom: 21px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--text);
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.checkbox:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.checkbox__text {
+  position: relative;
+  padding-left: 24px;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--text);
+}
+
+.checkbox__text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--checkbox-border);
+  border-radius: 3px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checkbox__input:focus-visible + .checkbox__text::before {
+  border-color: var(--checkbox-focus);
+}
+
+.checkbox__input:checked + .checkbox__text::before {
+  background-image: url('../img/check.svg');
+  border-color: var(--checkbox-focus);
 }
