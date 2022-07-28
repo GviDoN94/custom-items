@@ -6,6 +6,8 @@
   --gold: #CCB26E;
   --bg-form: #000000;
   --orange: #FF5C00;
+  --tooltip: #BCBCBC;
+  --bg-popup: #666666;
 }
 
 html {
@@ -46,13 +48,12 @@ body {
   background-color: var(--bg-items-wrapper);
   font-family: 'OpenSans', sans-serif;
   font-weight: 400;
-  font-size: 0;
 }
 
 .items-wrapper {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); */
   display: flex;
   align-items: flex-start;
   padding: 70px 36px 110px 92px;
@@ -196,7 +197,7 @@ body {
 /* form */
 .form {
   width: 440px;
-  padding: 41px 31px 39px;
+  padding: 36px 29px 39px;
   background-color: var(--bg-form);
   border-radius: 10px;
   font-family: 'Roboto';
@@ -206,7 +207,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  margin-bottom: 31px;
+  margin-bottom: 30px;
 }
 
 .js-validate-error-label {
@@ -219,7 +220,7 @@ body {
 
 .form__input {
   width: 100%;
-  padding: 19px 20px;
+  padding: 19px 18px;
   background: var(--white);
   border-radius: 10px;
   font-size: 16px;
@@ -231,10 +232,84 @@ body {
 }
 
 .form__btn {
-  padding: 18px 51px;
+  padding: 18px 53px;
   background-color: var(--orange);
   border-radius: 10px;
   font-size: 20px;
   line-height: 23px;
   color: var(--white);
+}
+
+/* tooltip */
+.tooltip-text {
+  width: 375px;
+  margin: 0;
+  padding: 20px 29px;
+  padding-right: 78px;
+  background-color: var(--white);
+  font-size: 14px;
+  line-height: 170%;
+  color: var(--text);
+}
+
+.tooltip {
+  position: relative;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.tooltip::before {
+  content: 'Глава 2, страница 176';
+  position: absolute;
+  transform: translate(calc(-100%/2 + 9px), calc(-100% - 12px));
+  width: max-content;
+  max-width: 165px;
+  padding: 7px 16px 8px;
+  background-color: var(--bg-popup);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  word-wrap: break-word;
+  color: var(--white);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: -77%;
+  left: 53%;
+  transform: translateX(-53%);
+  border: 4px solid transparent;
+  border-top: 6px solid var(--bg-popup);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+.tooltip__svg {
+  vertical-align: -3px;
+}
+
+.tooltip__svg path {
+  fill: var(--tooltip);
+  transition: fill .3s ease-in-out;
+}
+
+.tooltip:hover:not(:focus-visible) .tooltip__svg path,
+.tooltip:focus-visible .tooltip__svg path {
+  fill: var(--gold);
+}
+
+.tooltip:hover:not(:focus-visible).tooltip::before,
+.tooltip:hover:not(:focus-visible).tooltip::after,
+.tooltip:focus-visible.tooltip::before,
+.tooltip:focus-visible.tooltip::after  {
+  visibility: visible;
+  opacity: 1;
 }
