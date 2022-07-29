@@ -48,15 +48,16 @@ body {
   background-color: var(--bg-items-wrapper);
   font-family: 'OpenSans', sans-serif;
   font-weight: 400;
+
 }
 
 .items-wrapper {
-  /* position: absolute;
+  position: absolute;
   top: 50%;
-  transform: translateY(-50%); */
+  transform: translateY(-50%);
   display: flex;
   align-items: flex-start;
-  padding: 70px 36px 110px 92px;
+  padding: 70px 90px;
 }
 
 .item {
@@ -238,10 +239,6 @@ body {
 }
 
 /* skrollbar */
-.simplebar-content-wrapper {
-  overflow: auto;
-}
-
 .skrollbar {
   margin: 0;
   padding: 20px 30px 0 29px;
@@ -253,6 +250,10 @@ body {
   color: var(--text);
 }
 
+.simplebar-offset:focus-visible {
+  outline: 1px solid var(--gold);
+}
+
 .skrollbar
 .simplebar-track {
   top: 5px;
@@ -261,7 +262,10 @@ body {
 }
 
 .skrollbar
-.simplebar-scrollbar:before {
+.simplebar-scrollbar:before,
+body
+.simplebar-scrollbar:before
+ {
   background: var(--gold);
   border-radius: 5px;
   opacity: 1;
@@ -270,7 +274,7 @@ body {
 /* form */
 .form {
   width: 440px;
-  padding: 36px 29px 39px;
+  padding: 38px 29px 39px;
   background-color: var(--bg-form);
   border-radius: 10px;
   font-family: 'Roboto';
@@ -280,10 +284,10 @@ body {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
-.js-validate-error-label {
+.just-validate-error-label {
   position: absolute;
   top: -18px;
   left: 20px;
@@ -295,9 +299,15 @@ body {
   width: 100%;
   padding: 19px 18px;
   background: var(--white);
+  border: 1px solid transparent;
   border-radius: 10px;
   font-size: 16px;
   line-height: 19px;
+  transition:  outline-color .3 ease-in-out;
+}
+
+.just-validate-error-field {
+  border-color: var(--orange);
 }
 
 .form__input::placeholder {
@@ -311,6 +321,17 @@ body {
   font-size: 20px;
   line-height: 23px;
   color: var(--white);
+  cursor: pointer;
+  transition: opacity .2s ease-in, outline-color .3s ease-in-out;
+}
+
+.form__input:focus-visible,
+.form__btn:focus-visible {
+  outline-color: var(--gold);
+}
+
+.form__btn:active {
+  opacity: 0.8;
 }
 
 /* tooltip */

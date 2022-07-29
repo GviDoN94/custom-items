@@ -43,39 +43,54 @@ const inputTel = document.querySelector('.form__input[type="tel"]');
 const telMask = new Inputmask("+7 (999)-999-99-99");
 telMask.mask(inputTel);
 
-new window.JustValidate(".form", {
-  colorWrong: "#FF5C00",
-  rules: {
-    name: {
-      required: true,
-      minLength: 2,
-      maxLength: 25,
-    },
-    phone: {
-      required: true,
-      function: (name, value) => {
-        const phone = inputTel.inputmask.unmaskedvalue();
-        return +phone && phone.length === 10;
-      },
-    },
-    email: {
-      required: true,
-      email: true,
-    },
+const validition = new JustValidate(".form", {
+  errorFieldStyle: {
+    border: '1px solid #FF5C00',
   },
-  messages: {
-    name: {
-      required: "Вы не ввели имя",
-      minLength: "Имя слишком короткое",
-      maxLength: "Имя слишком длинное",
-    },
-    phone: {
-      required: "Вы не ввели номер телефон",
-      function: "Вы ввели некорректный номер телефона",
-    },
-    email: {
-      required: "Вы не ввели e-mail",
-      email: "Вы ввели некорректный e-mail",
-    },
+  errorLabelStyle: {
+    color: '#FF5C00',
   },
+  focusInvalidField: false,
 });
+
+validition
+  .addField("#name", [
+    {
+      rule: "required",
+      errorMessage: "Вы не ввели имя",
+    },
+    {
+      rule: "minLength",
+      value: 2,
+      errorMessage: "Вы ввели слишком короткое имя",
+    },
+    {
+      rule: "maxLength",
+      value: 30,
+      errorMessage: "Вы ввели слишком длинное имя",
+    },
+  ])
+  .addField("#phone", [
+    {
+      rule: "required",
+      errorMessage: "Вы не ввели телефон",
+    },
+    {
+      validator: (name, value) => {
+        const phone = inputTel.inputmask.unmaskedvalue();
+        return Boolean(+phone && phone.length === 10);
+      },
+      errorMessage: "Вы ввели некорректный номер телефона",
+    },
+  ])
+  .addField("#email", [
+    {
+      rule: "required",
+      errorMessage: "Вы не ввели e-mail",
+    },
+    {
+      rule: "email",
+      errorMessage: "Вы ввели некорректный e-mail",
+    },
+  ]);
+

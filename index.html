@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Кастомные элементы</title>
-  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="libs/choices-js/choices.min.css">
   <link rel="stylesheet" href="libs/simplebar/simplebar.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="libs/choices-js/choices.min.js" defer></script>
   <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript" defer></script>
@@ -61,13 +61,13 @@
     </p>
     <form class="form item" action="https://jsonplaceholder.typicode.com/posts" method="post">
       <div class="form__input-wrap">
-        <input class="form__input" type="text" name="username" placeholder="Имя*" data-validate-field="name">
+        <input class="form__input" type="text" name="username" placeholder="Имя*" id="name">
       </div>
       <div class="form__input-wrap">
-        <input class="form__input" type="tel" name="phone" placeholder="Телефон*" data-validate-field="phone">
+        <input class="form__input" type="tel" name="phone" placeholder="Телефон*" id="phone">
       </div>
       <div class="form__input-wrap">
-        <input class="form__input" type="email" name="email" placeholder="E-mail*" data-validate-field="email">
+        <input class="form__input" type="email" name="email" placeholder="E-mail*" id="email">
       </div>
       <button class="form__btn" type="submit">Заказать</button>
     </form>
